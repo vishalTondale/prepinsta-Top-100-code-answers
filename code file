@@ -1,0 +1,728 @@
+'''
+
+Author : Tondale Vishal R.
+contact : 9067804781
+subject : Answers of prepinsta top 100 coding questions in python. 
+
+'''
+
+
+######  prepinsta top 100 coding questions  ####
+
+  
+####  getting started  #####
+  
+#  1>  Positive or negative number
+'''
+i=int(input())
+if(i>0):
+    print('positive')
+elif(i<0):
+    print('negative')
+else:
+    print('zero')
+'''
+
+#  2>  even or odd 
+'''
+i=int(input())
+if(i%2==0):
+    print('even')
+else:
+    print('odd')
+'''
+
+#  3> sum of first n natural numbers 
+'''
+n=int(input())
+sum=0
+for i in range(1,n):
+    sum=sum+i
+print(sum)
+'''
+
+#  4> sum of n natural numbers 
+'''
+n=int(input())
+nums=list(map(int,input().split(' ')))
+sum=0
+for i in nums:
+    if(i>0):
+        sum=sum+i 
+print(sum)
+'''
+
+#  5> sum of numbers in a given range 
+'''
+s,e=map(int,input().split(' '))
+sum=0
+for i in range(s,e+1):
+    sum=sum+i 
+print(sum)
+'''
+
+#  6> greatest of two numbers
+'''
+a,b=map(int,input().split(' '))
+if(a>b):
+    print('a is greater')
+elif(b>a):
+    print('b is greater')
+else:
+    print('a and b are equal')
+'''
+
+#  7> greatest of three numbers 
+'''
+a,b,c=map(int,input().split(' '))
+if(a==b==c):
+    print('all are equal')
+elif(a>b and a>c):
+    print('a is greater')
+elif(b>a and b>c):
+    print('b is greater')
+elif(c>a and c>b):
+    print('c is greater')
+'''
+
+#  8> leap year or not
+'''
+year=int(input())
+if(year%4==0):
+    if(year%100==0 or year%400==0):
+        print('not leap year')
+    else:
+        print('leap year')
+'''
+
+#  9> prime number
+'''
+n=int(input())
+cnt=0
+for i in range(2,n):
+    if(n%i==0):
+        cnt=cnt+1 
+if(cnt!=0):
+    print('not prime')
+else:
+    print('prime')
+'''
+
+#  10> prime numbers between given range
+'''
+a,b=map(int,input().split(' '))
+pcnt=0
+for i in range(a,b+1):
+    cnt=0
+    for j in range(2,i):
+        if(i%j==0):
+            cnt=cnt+1 
+    if(cnt==0):
+        print(i,end=' ')
+        pcnt+=1
+print('\ncount of prime number = ',pcnt)    
+'''
+
+#  11> sum of digits of given number 
+'''
+n=in(input())
+sum=0
+while(n>0):
+    sum=sum+(n%10)
+    n=n//10 
+print(sum)
+'''
+
+#  12> reverse of a number 
+'''
+n=int(input())
+rev=0 
+while(n>0):
+    rev=(rev*10)+(n%10)
+    n=n//10 
+print(rev)
+'''
+
+# 13> palindrome number 
+'''
+n=int(input())
+rev=0 
+temp=n
+while(n>0):
+    rev=(rev*10)+ (n%10)
+    n=n//10 
+if(rev==temp):
+    print('yes')
+else:
+    print('no')
+'''
+
+# 14> armstrong number 
+'''
+n=int(input())
+sum=0
+temp=n
+while(n>0):
+    rem=n%10 
+    sum=sum+(rem*rem*rem)
+    n=n//10 
+if(temp==sum):
+    print('yes')
+else:
+    print('no')
+'''
+
+#  15> armstrong numbers in a given range 
+'''
+a,b=map(int,input().split(' '))
+
+for i in range(a,b+1):
+    sum=0 
+    temp=i
+    s=str(i)
+    l=len(s)
+    while(temp>0):
+        rem=temp%10 
+        sum=sum+(rem**l)
+        temp=temp//10
+    if(sum==i):
+        print(i,end=' ')
+'''
+
+#  16> fibonancy series upto nth term
+'''
+n=int(input())
+a=0;b=1;c=0 
+for i in range(n):
+    c=a+b
+    b=a 
+    a=c
+    print(c,end=' ')
+'''
+
+#  17> find the nth term of the fibonancy series 
+'''
+n=int(input())
+a=0;b=1;c=0 
+for i in range(n):
+    c=a+b 
+    b=a 
+    a=c
+print(c)
+'''
+
+#  18>  factorial of the number 
+'''
+n=int(input())
+fact=1 
+for i in range(1,n+1):
+    fact=fact*i
+print(fact)
+'''
+
+#  19>  power of the number 
+'''
+num,power=map(int,input().split(' '))
+print(num**power)
+'''
+
+#  20>  factors of the number 
+'''
+n=int(input())
+for i in range(1,n+1):
+    if(n%i==0):
+        print(i,end=' ')
+'''
+
+#  21>  finding prime factors of a number 
+'''
+n=int(input())
+for i in range(1,n+1):
+    if(n%i==0):
+        cnt=0
+        if(i==1):
+            cnt=cnt+1
+        for j in range(2,i):
+            if(i%j==0):
+                cnt+=1
+    if(cnt==0):
+        print(i,end=' ')
+'''
+
+#  22>  strong number (sum of digit's factorial = given number)
+'''
+n=int(input())
+t=n
+sum=0
+while(n>0):
+    fact=1
+    r=n%10
+    for i in range(1,r+1):
+        fact=fact*i
+    sum=sum+fact
+    n=n//10
+if(sum==t):
+    print('yes')
+else:
+    print('no')
+'''
+
+#  23>  perfect number (sum of positive factors = given number) 
+'''
+n=int(input())
+sum=0
+for i in range(1,n):
+    if(n%i==0):
+        sum=sum+i 
+if(sum==n):
+    print('yes')
+else:
+    print('no')
+'''
+
+#  24> perfect square 
+'''
+n=int(input())
+b=(n**.5)
+a=int(b)
+if(a==b):
+    print('yes')
+else:
+    print('no')
+'''
+
+#  25> Automorphic number (number whose square ends with given number)
+'''
+n=int(input())         # input number n
+sq=n*n                 # calculate square sq
+
+s=str(n)               # convert n to string s
+revs=s[::-1]           # reverse s 
+
+ssq=str(sq)            # convert sq to string ssq
+revssq=ssq[::-1]       # reverse ssq
+
+cnt=0                  # initial count of last same integers
+
+for i in range(len(s)):
+    if(int(revssq[i])==int(revs[i])):   # condition for same int checking
+        cnt+=1                          # if same then increment in cnt
+    else:
+        break
+if(cnt==len(s)):        # if same int cnt = length of string s
+    print('yes') 
+else:                   # if not 
+    print('no')
+
+
+'''
+
+#   26> Harshad number   (number is divisible by sum of its digit)
+'''
+n=int(input())
+t=n 
+sum=0 
+while(n>0):
+    sum=sum+(n%10) 
+    n=n//10 
+if(t%sum==0):
+    print('yes')
+else:
+    print('no')
+'''
+
+#  27>  Abundant nummber (sum of proper divisors more than number.)
+'''
+n=int(input())
+sum=0 
+for i in range(1,n):
+    if(n%i==0):
+        sum=sum+i 
+if(sum>n):
+    print('yes')
+else:
+    print('no')
+'''
+
+#  28>  Friendly pair (a,b) ((sum of divisors of /a)=(sum of divisors of b/b))
+'''
+a,b = map(int,input().split(' '))
+if(a>b):
+    large=a
+    small=b
+else:
+    large=b
+    small=a
+largesum=0 
+smallsum=0 
+for i in range(1,large):
+    if(i<small):
+        if(small%i==0):
+            smallsum=smallsum+i 
+        if(large%i==0):
+            largesum=largesum+i 
+    else:
+        if(large%i==0):
+            largesum=largesum+i 
+if((smallsum/small)==(largesum/large)):
+    print('yes')
+else:
+    print('no')
+'''
+
+
+#### working with numbers  ####
+
+#  29>  highest common factor
+'''
+a,b=map(int,input().split(' '))
+if(a>b):
+    small=b
+else:
+    small=a
+for i in range(small,0,-1):
+    if(a%i==0 and b%i==0):
+        hcf=i
+        break 
+print(hcf)
+'''
+
+#  30> lowest common factor 
+'''
+a,b=map(int,input().split(' '))
+if(a>b):
+    small=b 
+else:
+    small=a 
+lcm=1
+for i in range(2,small+1):
+    if(a%i==0 and b%i==0):
+        lcm=i
+        break
+print(lcm)
+'''
+
+#  31> greatest common divisor 
+'''
+a,b=map(int,input().split(' '))
+if(a>b):
+    small=b 
+else:
+    small=a 
+for i in range(small,1,-1):
+    if(a%i==0 and b%i==0):
+        gcd=i 
+        break 
+print(gcd)
+'''  
+
+#  32> binary to decimal conversion 
+'''
+n=input()
+l=len(n)
+a=(2**l) 
+for i in range(a):
+    b=bin(i)
+    c=str(b)
+    if(c[2::]==n):
+        print(i)
+'''
+   ####   OR   ######
+'''
+n=int(input())
+s=0 
+m=0
+while(n>0):
+    s=s+(2**m)*(n%10) 
+    m+=1 
+    n=n//10 
+print(s)
+'''
+
+#  33> octal to decimal conversion
+'''
+n=int(input())
+d=0
+m=0
+while(n>0):
+    d=d+(8**m)*(n%10)
+    m+=1
+    n=n//10 
+print(d)
+'''
+
+#  34>  hexadecimal to decimal 
+'''
+n=input()
+print(int(n,16))
+'''
+
+#  35>  decimal to binary
+'''
+n=int(input())
+b=bin(n)
+bs=str(b)
+print(bs[2::])
+'''
+
+#  36>  decimal to octal
+'''
+n=int(input())
+o=oct(n)
+os=str(o)
+print(os[2::])
+'''
+
+#  37>  decimal to hexadecimal 
+'''
+n=int(input())
+h=hex(n)
+hs=str(h)
+print(hs[2::])
+'''
+
+#  38>  binary to octal
+'''
+b=int(input()) 
+d=0
+m=0
+while(b>0):    # binary to decimal
+    d=d+(2**m)*(b%10) 
+    m+=1
+    b=b//10 
+o=oct(d)       # decimal to octal
+os=str(o)
+print(os[2::])
+'''
+
+#  39>  octal to binary
+'''
+n=int(input())
+d=0
+m=0
+while(n>0):       # octal to decimal
+    d=d+(8**m)*(n%10)
+    m+=1
+    n=n//10 
+b=bin(d)        # decimal to binary
+bs=str(b)
+print(bs[2::])
+'''
+
+#  40>  quadrent in which the given coordinates lies 
+'''
+a,b=map(int,input().split())
+if(a>0 and b>0):
+    print("in 1'st quadrent.")
+elif(a>0 and b<0):
+    print("in 4'th quadrent.")
+elif(a<0 and b>0):
+    print("in 2'nd quadrent.")
+elif(a<0 and b<0):
+    print("in 3'rd quadrent.")
+else:
+    print('invalid input.')
+'''
+
+#  41> maximum number of handshake 
+'''
+n=int(input())
+print(int(n*((n-1)/2))) 
+'''
+
+#  42>  addition of two fractions 
+'''
+n1,d1,n2,d2=map(int,input().split(' '))
+n=(n1*d2)+(n2*d1) 
+d=(d1*d2)
+print('addition of fractions',(n1,d1),'+',(n2,d2),'is\n',(n,d))
+'''
+
+#  43> replace all 0's with 1 in a given integer 
+'''
+n=int(input())
+sum=0 
+n=str(n)
+ans=''
+for i in n:
+    if(i=='0'):
+        ans=ans+'1'
+    else:
+        ans=ans+i
+print(ans)
+'''
+
+#  44>  can a number be expressed as a sum of two prime numbers 
+'''
+n=int(input())
+pnums=[]
+ans=[]
+for i in range(2,n):
+    cnt=0
+    for j in range(2,i):
+        if(i%j==0):
+            cnt+=1 
+            break
+    if(cnt==0):
+        pnums.append(i) 
+l=len(pnums)
+for i in range(l):
+    for j in range(l):
+        if i==j:
+            break 
+        elif(pnums[i]+pnums[j]==n):
+            ans.append((pnums[i],pnums[j]))
+            
+print(ans)   
+'''
+
+#  45>  count possible decoding of a given digit sequence 
+
+#  46>  Calculate the area of a circle 
+'''
+pie = 3.14 
+r=int(input())
+print((pie)*(r*r)) 
+'''
+
+#  47>  Find the prime numbers between 1 to n 
+'''
+n=int(input())
+for i in range(2,n+1):
+    cnt=0 
+    for j in range(2,i):
+        if(i%j==0):
+            cnt+=1
+            break 
+    if(cnt==0):
+        print(i,end=' ')
+'''
+
+#  48>  Calculate the number of digits in an integer 
+
+#    method 1 
+'''
+n=int(input())
+print(len(str(n)))
+'''
+#    method 2 
+'''
+n=int(input())
+cnt=0
+while(n>0):
+    cnt+=1 
+    n=n//10
+print(cnt)
+'''
+
+#  49>  Convert digit/number to words [1to 100]
+'''
+n=int(input())
+one=['','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','therteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen']
+ten=['','','twenty','thirty','fourty','fifty','sixty','seventy','eighty','ninety','hundread']
+if(n<0):
+    print('minus',end=' ')
+    n=abs(n)
+if(n<20):
+    print(one[n]) 
+elif(n>19 and n<100):
+    s=n%10 
+    f=(n//10)%10
+    print(ten[f],one[s])
+elif(n==100):
+    print(ten[10])
+'''
+
+#  50>  Counting number of days in a given month of a year
+'''
+month=int(input())
+year=int(input())
+if(year%100==0 or year%400==0 or year%4!=0):
+    if(month%2==1):
+        print(31)
+    elif(month==2):
+        print(28)
+    else:
+        print(30)
+elif(month%2==1):
+    print(31)
+else:
+    print(29)
+'''
+
+#  51>  Finding Number of times x digit occurs in a given input 
+'''
+n=int(input())
+x=int(input())
+cnt=0 
+while(n>0):
+    r=n%10 
+    if(r==x):
+        cnt+=1 
+    n=n//10
+print(cnt)
+'''
+
+#  52>  Finding number of integers which has exactly x divisors
+'''
+x=int(input())
+nums=0
+for i in range(1,1000):
+    cnt=0
+    for j in range(1,i):
+        if(i%j==0):
+            cnt+=1 
+            if(cnt==x):
+                nums=nums+1
+                print(i,end=' ')
+print('\n',nums)
+'''
+
+#  53>  Finding Roots of a quadratic equation
+
+#  54>  Permutations in which n people can occupy r seats in a classroom
+
+
+####   Codes for Recursion    #### 
+
+
+#  55>  Power of a Number 
+'''
+n,p=map(int,input().split(' '))
+print(n**p)
+'''
+
+#  56>  Largest element in an array
+'''
+nums=list(map(int,input().split(' ')))
+print(max(nums))
+'''
+
+#  57>  Smallest element in an array  
+'''
+nums=list(map(int,input().split(' ')))
+print(min(nums))
+'''
+
+#  58>  Program to calculate length of the string 
+'''
+s=input()
+print(len(s))
+'''
+
+#  59>  Calculate the sum of elements in an array 
+'''
+nums=list(map(int,input().split(' ')))
+sum=0
+for i in nums:
+    sum=sum+i
+print(sum)
+'''
+
+#  60>  Reverse an Array  
+'''
+nums=list(map(int,input().split(' ')))
+print(nums[::-1])
+'''
+
+#  61>  
